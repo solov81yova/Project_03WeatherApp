@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background:
+        radial-gradient(at 50% 0%, #83a8bc, 20%, transparent 40%),
+        linear-gradient(#5e849b, 50%, #223c56);
+    min-height: calc(100vh - 100px);
+}
+
+.weather-app {
+    margin: 100px auto 30px auto;
+    background: linear-gradient(#182231, 80%, #00926f);
+    height: 640px;
+    width: 380px;
+    text-align: center;
+    box-shadow: 0em 2em 10em 0em #223c56;
+}
+
+.date-city-section {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+    font-size: 26px;
+}
+
+p {
+    color: #fff;
+    font-family: 'Lato';
+}
+
+.date-city-section .date {
+    padding-top: 40px;
+    font-size: 24px;
+    font-weight: 300;
+    color: white;
+}
+
+.date-city-section .city {
+    font-size: 24px;
+    font-weight: 900;
+    margin-top: -10px;
+}
+
+.temperature-info .description {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.description img {
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    height: 180px;
+    width: 180px;
+    background-position: center;
+}
+
+.descr-text {
+    font-size: 24px;
+    color: #fff;
+    font-weight: 300;
+}
+
+.temp {
+    font-size: 80px;
+    font-weight: 100;
+    color: white;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.additional-info {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+.forecast-item {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+}
+
+.forecast-item img {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+}
+p.max-temp, p.min-temp, p.dayWeek {
+    padding: 10px 0;
+    height: 33px;
+}
+
+.day {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+}
+
+.day img {
+    width: 30px;
+    height: 30px;
+    gap: 20px;
+}
+
+.max-temp {
+    padding-top: 15px 0;
+    color: rgb(19, 19, 82);
+}
