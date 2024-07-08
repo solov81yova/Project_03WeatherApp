@@ -1,16 +1,19 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const apiKey = '167aea582efc48099c6165012240107';
     const city = 'San Francisco';
 
     const apiUrl = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=7&aqi=no&alerts=no&lang=en`;
-    fetch(apiUrl)
-        .then(
-            response => response.json())
-        .then(data => {
-            console.log('API Response:', data);
-            updateWeatherWidget(data);
-        })
-        .catch(error => console.error('Error fetching data', error))
+    try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        console.log('API Response:', data);
+        updateWeatherWidget(data);
+    } catch (error) {
+        console.error('Error fetching data', error);
+    }
 
 });
 
@@ -38,8 +41,7 @@ function updateWeatherWidget(data) {
 
     // Update forecast
     forecastElement.innerHTML = ' ';
-    for (let i = 1; i < forecast.length; i++) {
-        const day = forecast[i];
+    forecast.slice(1).forEach(day => {
         const forecastItem = document.createElement('div');
         forecastItem.className = 'forecast-item';
         forecastItem.innerHTML = `
@@ -49,7 +51,7 @@ function updateWeatherWidget(data) {
             <div class="min-temp">${Math.round(day.day.mintemp_c)}°C</div>
         `;
         forecastElement.appendChild(forecastItem);
-    };
+    });
 }
 
 function getWeatherIcon(condition) {
